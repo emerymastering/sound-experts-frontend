@@ -1,26 +1,39 @@
-import { Title } from "../styled"
-import { Link } from "react-router-dom"
-import { LinkWord } from "../styled"
-import styled from "styled-components"
+import { Title } from "../styled";
+import { Link } from "react-router-dom";
+import { LinkWord } from "../styled";
+import styled from "styled-components";
 
 export const Homepage = () => {
-
   return (
-    <Container>
-     <h3>Hello there 👋</h3>
-     <p>General information:</p>
-     <ul>
-      <li>Go to your backend and modify the config url</li>
-      <li>Make sure you clicked on the <b>use template</b> button on github</li>
-      <li>This template is using <a style={LinkWord} target="_blank" href="https://styled-components.com/">styled components</a>, you don't have to use it</li>
-      <li>You don't have to follow the folder structure, feel free to adapt to your own</li>
-      <li>Login and SignUp are already implemented</li>
-      <li>Modify this page to create your own homeepage</li>
-     </ul>
-    </Container>
-  )
-}
-
-const Container = styled.div`
-  margin: 20px
-`
+    <div className="">
+      <h1 className="flex place-content-center text-3xl underline p-10">
+        Welcome to SoundExperts
+      </h1>
+      <p className="flex place-content-center p-10 text-xl">
+        Here you can find the best experts in sound and music. Experienced
+        Singers, Musicians, Producers, Mixing and Mastering Engineers will help
+        you to take your production to the next level!
+      </p>
+      <div className="flex p-10">
+        <div className="flex-auto">
+          <button
+            className="bg-teal-500 hover:bg-teal-400 text-white font-bold py-20 px-4 border-b-4 border-teal-700 hover:border-teal-500 rounded"
+            onClick={""}
+            style={{ color: "white" }}
+          >
+            I am a customer and I look for a professional help for my project
+          </button>
+        </div>
+        <div className="flex-auto">
+          <button
+            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-20 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+            onClick={""}
+            style={{ color: "white" }}
+          >
+            I am an expert and I want to offer my services
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
