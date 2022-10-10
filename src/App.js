@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { getUserWithStoredToken } from "./store/user/thunks";
 import { Routes, Route } from "react-router-dom";
 import { Navigation, MessageBox } from "./components";
-import { Homepage, Login, SignUp, Experts, JobForm } from "./pages";
+import { Homepage, Login, SignUp, Experts, JobForm, Jobs } from "./pages";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/experts" element={<Experts />} />
         <Route path="/jobform" element={<JobForm />} />
+        <Route path="/jobs" element={<Jobs />} />
       </Routes>
     </div>
   );
