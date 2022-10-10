@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 export const Homepage = () => {
   return (
-    <div>
+    <div className="ml-80 mr-80">
       <h1 className="flex place-content-center text-3xl underline p-10">
         Welcome to SoundExperts
       </h1>
@@ -18,7 +18,7 @@ export const Homepage = () => {
         <div className="flex-auto">
           <Link to={"/experts"}>
             <button
-              className="bg-teal-500 hover:bg-teal-400 text-white font-bold py-20 px-4 border-b-4 border-teal-700 hover:border-teal-500 rounded"
+              className="bg-teal-500 hover:bg-teal-400 text-white font-bold py-20 px-4 border-b-4 border-teal-700 hover:border-teal-500 rounded w-full h-full"
               style={{ color: "white" }}
             >
               I am a customer and I look for a professional help for my project.
@@ -29,7 +29,7 @@ export const Homepage = () => {
         </div>
         <div className="flex-auto">
           <button
-            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-20 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+            className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-20 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded w-full h-full"
             style={{ color: "white" }}
           >
             I am an expert and I want to offer my services

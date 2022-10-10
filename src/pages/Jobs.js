@@ -29,18 +29,7 @@ export const Jobs = () => {
                 "
                   key={job.id}
                 >
-                  <Job
-                    id={job.id}
-                    job={job}
-                    // description={job.description}
-                    // budget={job.budget}
-                    // remote={job.remote}
-                    // deadline={job.deadline}
-                    // genre={job.genre.title}
-                    // specialisation={job.specialisation.title}
-                    // firstName={job.user.first_name}
-                    // imageURL={job.user.image_URL}
-                  />
+                  <Job id={job.id} job={job} />
                 </div>
               );
             })}

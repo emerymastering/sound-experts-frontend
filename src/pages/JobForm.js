@@ -9,51 +9,54 @@ export const JobForm = () => {
       className="p-20 pl-60 pr-60 ml-80 mr-80
     "
     >
-      <div class="grid gap-6 mb-6 md:grid-cols-2">
+      <div class="grid gap-6 mb-6 md:grid-cols-1">
         <div>
           <label
-            for="first_name"
+            for="description"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
-            First name
+            Job description
           </label>
           <input
             type="text"
-            id="first_name"
+            id="description"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="John"
+            placeholder="What is your job about?"
             required
           />
         </div>
         <div>
           <label
-            for="last_name"
+            for="Budget"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
-            Last name
+            Approximate budget in EUR
           </label>
           <input
-            type="text"
-            id="last_name"
+            type="integer"
+            id="budget"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Doe"
+            placeholder="Enter an amount"
             required
           />
         </div>
         <div>
           <label
-            for="company"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            for="small"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
           >
-            Company
+            Small select
           </label>
-          <input
-            type="text"
-            id="company"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Flowbite"
-            required
-          />
+          <select
+            id="small"
+            class="block p-2 mb-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
+            <option selected>Choose a specialisation</option>
+            <option value="ME">Mastering Engineer</option>
+            <option value="MI">Mixing Engineer</option>
+            <option value="FS">Female Singer</option>
+            <option value="MS">Male Singer</option>
+          </select>
         </div>
         <div>
           <label
@@ -117,36 +120,7 @@ export const JobForm = () => {
           required
         />
       </div>
-      <div class="mb-6">
-        <label
-          for="password"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >
-          Password
-        </label>
-        <input
-          type="password"
-          id="password"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="•••••••••"
-          required
-        />
-      </div>
-      <div class="mb-6">
-        <label
-          for="confirm_password"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >
-          Confirm password
-        </label>
-        <input
-          type="password"
-          id="confirm_password"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="•••••••••"
-          required
-        />
-      </div>
+
       <div class="flex items-start mb-6">
         <div class="flex items-center h-5">
           <input

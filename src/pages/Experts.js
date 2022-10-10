@@ -23,7 +23,7 @@ export const Experts = () => {
           ? "Loading"
           : specialisations.map((specialisation) => {
               return (
-                <div className="p-10 w-60 h-72" key={specialisation.id}>
+                <div className="p-10 w-60 h-50" key={specialisation.id}>
                   <Specialisation
                     id={specialisation.id}
                     title={specialisation.title}
