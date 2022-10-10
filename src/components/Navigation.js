@@ -57,7 +57,7 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: skyblue;
+  background: black;
   /* position: absolute; */
   top: 0;
   left: 0;

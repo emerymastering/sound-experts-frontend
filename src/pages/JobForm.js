@@ -6,36 +6,36 @@ export const JobForm = () => {
 
   return (
     <form
-      className="p-20 pl-60 pr-60 ml-80 mr-80
+      className="p-20 pt-20 pl-80 pr-80 ml-100 mr-100 bg-[url('https://cdn.smehost.net/sonymusiceu-deprod/wp-content/uploads/2021/05/MicrosoftTeams-image-10-scaled.jpg')] bg-center bg-cover
     "
     >
-      <div class="grid gap-6 mb-6 md:grid-cols-1">
+      <div class="grid gap-6 mb-6 md:grid-cols-1 pl-60 pr-60 bg-black bg-opacity-70 pb-10 ">
         <div>
           <label
             for="description"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500 pt-10"
           >
             Job description
           </label>
           <input
             type="text"
             id="description"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="What is your job about?"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
+            placeholder="What is your job about? (short description)"
             required
           />
         </div>
         <div>
           <label
             for="Budget"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500"
           >
             Approximate budget in EUR
           </label>
           <input
             type="integer"
             id="budget"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
             placeholder="Enter an amount"
             required
           />
@@ -43,15 +43,15 @@ export const JobForm = () => {
         <div>
           <label
             for="small"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500"
           >
-            Small select
+            Select a specialisation
           </label>
           <select
             id="small"
-            class="block p-2 mb-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="block p-2 mb-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
           >
-            <option selected>Choose a specialisation</option>
+            <option selected>I am looking to hire a...</option>
             <option value="ME">Mastering Engineer</option>
             <option value="MI">Mixing Engineer</option>
             <option value="FS">Female Singer</option>
@@ -60,36 +60,36 @@ export const JobForm = () => {
         </div>
         <div>
           <label
-            for="phone"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            for="deadline"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500"
           >
-            Phone number
+            Deadline
           </label>
           <input
-            type="tel"
-            id="phone"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="123-45-678"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+            type="dateonly"
+            id="deadline"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
+            placeholder="YYYY-MM-DD"
+            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
             required
           />
         </div>
         <div>
           <label
-            for="website"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            for="remote"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500"
           >
-            Website URL
+            Remote
           </label>
           <input
-            type="url"
-            id="website"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="flowbite.com"
+            type="boolean"
+            id="remote"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
+            placeholder="YES/NO"
             required
           />
         </div>
-        <div>
+        {/* <div>
           <label
             for="visitors"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -103,22 +103,22 @@ export const JobForm = () => {
             placeholder=""
             required
           />
+        </div> */}
+        <div class="mb-6">
+          <label
+            for="reference"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500 "
+          >
+            Reference Song URL
+          </label>
+          <input
+            type="url"
+            id="reference"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
+            placeholder="some url"
+            required
+          />
         </div>
-      </div>
-      <div class="mb-6">
-        <label
-          for="email"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >
-          Email address
-        </label>
-        <input
-          type="email"
-          id="email"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="john.doe@company.com"
-          required
-        />
       </div>
 
       <div class="flex items-start mb-6">
