@@ -15,8 +15,8 @@ export const Jobs = () => {
   console.log("show me:", jobs);
   //   console.log("show me:", jobs.jobs.length);
   return (
-    <div>
-      <h1 className="flex place-content-center text-3xl underline p-10">
+    <div className="ml-80 mr-80">
+      <h1 className="flex place-content-center text-3xl underline p-10 ">
         List of current Jobs
       </h1>
       <div className="flex flex-col flex-wrap mx-32 justify-center">

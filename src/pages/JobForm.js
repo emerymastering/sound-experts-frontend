@@ -5,7 +5,10 @@ export const JobForm = () => {
   const dispatch = useDispatch();
 
   return (
-    <form>
+    <form
+      className="p-20 pl-60 pr-60 ml-80 mr-80
+    "
+    >
       <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
           <label
