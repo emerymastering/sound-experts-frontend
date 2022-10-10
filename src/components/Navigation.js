@@ -23,6 +23,8 @@ export const Navigation = () => {
         <span />
       </Hamburger>
       <Menu open={open}>
+        <MenuLink to="/jobform">Post a Job</MenuLink>
+        <MenuLink to="/jobs">Jobs Board</MenuLink>
         <MenuLink to="/empty1">Messages</MenuLink>
         <MenuLink to="/empty2">My Account</MenuLink>
         {token ? (
