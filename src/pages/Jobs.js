@@ -13,7 +13,7 @@ export const Jobs = () => {
   }, [dispatch]);
 
   console.log("show me:", jobs);
-  //   console.log("show me:", jobs.jobs.length);
+
   return (
     <div className="ml-80 mr-80">
       <h1 className="flex place-content-center text-3xl underline p-10 ">
