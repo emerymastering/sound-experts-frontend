@@ -12,8 +12,8 @@ export const JobForm = () => {
       <div class="grid gap-6 mb-6 md:grid-cols-1 pl-60 pr-60 bg-black bg-opacity-70 pb-10 ">
         <div>
           <label
-            for="description"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500 pt-10"
+            htmlFor="description"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300  pt-10"
           >
             Job description
           </label>
@@ -27,8 +27,8 @@ export const JobForm = () => {
         </div>
         <div>
           <label
-            for="Budget"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500"
+            htmlFor="Budget"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
           >
             Approximate budget in EUR
           </label>
@@ -42,15 +42,17 @@ export const JobForm = () => {
         </div>
         <div>
           <label
-            for="small"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500"
+            htmlFor="small"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
           >
             Select a specialisation
           </label>
           <select
             id="small"
             class="block p-2 mb-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
+            // onChange={(event) => setSelectedSpecialisation(event.target.value)}
           >
+            {/* {specialisation.map(item => <option value={item.id}>{item.name}</option>)} */}
             <option selected>I am looking to hire a...</option>
             <option value="ME">Mastering Engineer</option>
             <option value="MI">Mixing Engineer</option>
@@ -60,8 +62,8 @@ export const JobForm = () => {
         </div>
         <div>
           <label
-            for="deadline"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500"
+            htmlFor="deadline"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
           >
             Deadline
           </label>
@@ -76,8 +78,8 @@ export const JobForm = () => {
         </div>
         <div>
           <label
-            for="remote"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500"
+            htmlFor="remote"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
           >
             Remote
           </label>
@@ -106,8 +108,8 @@ export const JobForm = () => {
         </div> */}
         <div class="mb-6">
           <label
-            for="reference"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 underline decoration-yellow-500 "
+            htmlFor="reference"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300  "
           >
             Reference Song URL
           </label>
@@ -132,7 +134,7 @@ export const JobForm = () => {
           />
         </div>
         <label
-          for="remember"
+          htmlFor="remember"
           class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
         >
           I agree with the{" "}
