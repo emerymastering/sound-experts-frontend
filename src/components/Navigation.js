@@ -26,9 +26,14 @@ export const Navigation = () => {
         <MenuLink to="/jobform">Post a Job</MenuLink>
         <MenuLink to="/jobs">Jobs Board</MenuLink>
         <MenuLink to="/empty1">Messages</MenuLink>
-        <MenuLink to="/empty2">My Account</MenuLink>
+        <MenuLink to="/myaccount">My Account</MenuLink>
         {token ? (
-          <button onClick={() => dispatch(logOut())}>Logout</button>
+          <button
+            style={{ color: "#9cc094" }}
+            onClick={() => dispatch(logOut())}
+          >
+            Logout
+          </button>
         ) : (
           <MenuLink to="/login">Login | Sign up</MenuLink>
         )}
