@@ -1,16 +1,24 @@
 import React from "react";
+import { deleteJob } from "../store/jobs/thunks";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
-export default function Job({ job }) {
+export default function Job({ id, job }) {
+  const dispatch = useDispatch();
   const { description, budget, deadline, user, genre, specialisation } = job;
+  const removeJob = (id) => {
+    dispatch(deleteJob(id));
+  };
 
   return (
     <div
       className="flex bg-teal-500 hover:bg-teal-400 text-white font-bold py-6 px-4 border-b-4 border-teal-700 hover:border-teal-500 rounded min-h-full "
       style={{ color: "white" }}
     >
-      <img style={{ height: 100 }} src={user.image_URL} alt="user" />
+      <img
+        style={{ height: 100, width: 100 }}
+        src={user.image_URL}
+        alt="user"
+      />
 
       <div className="flex pl-4">
         <div className="min-w-20 w-100">
@@ -22,6 +30,14 @@ export default function Job({ job }) {
         <div className="pl-4">
           <p>My Budget is {budget} €</p>
           <p>Deadline: {deadline}</p>
+        </div>
+        <div>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 ml-2 rounded"
+            onClick={() => removeJob(id)}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
