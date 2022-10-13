@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { apiUrl } from "../config/constants";
+import { jobForm } from "../store/jobs/thunks";
 
 export const JobForm = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,8 @@ export const JobForm = () => {
   const [deadline, setDeadline] = useState(
     new Date().toISOString().slice(0, 10)
   );
-  const [genre, setGenre] = useState("");
+  const [genreId, setGenreId] = useState("");
+  const [genres, setGenres] = useState(null);
   const [specialisationId, setSpecialisationId] = useState("");
   const [specialisations, setSpecialisations] = useState(null);
 
@@ -29,8 +31,31 @@ export const JobForm = () => {
     fetchSpecialisations();
   }, []);
 
+  const fetchGenres = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}/jobs/genres`);
+      console.log("Genres", response);
+      setGenres(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchGenres();
+  }, []);
+
+  const submitJob = (e) => {
+    e.preventDefault();
+    dispatch(
+      jobForm(description, budget, specialisationId, deadline, genreId, remote)
+    );
+    console.log("done");
+  };
+
   return (
     <form
+      onSubmit={submitJob}
       className="p-20 pt-20 pl-80 pr-80 ml-100 mr-100 bg-[url('https://cdn.smehost.net/sonymusiceu-deprod/wp-content/uploads/2021/05/MicrosoftTeams-image-10-scaled.jpg')] bg-center bg-cover
     "
     >
@@ -44,6 +69,8 @@ export const JobForm = () => {
           </label>
           <input
             type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             id="description"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
             placeholder="What is your job about? (short description)"
@@ -59,6 +86,8 @@ export const JobForm = () => {
           </label>
           <input
             type="integer"
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
             id="budget"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
             placeholder="Enter an amount"
@@ -92,6 +121,31 @@ export const JobForm = () => {
         </div>
         <div>
           <label
+            htmlFor="small"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
+          >
+            Select a genre/style of music
+          </label>
+          <select
+            id="small"
+            className="block p-2 mb-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
+            defaultValue="choose"
+            onChange={(e) => setGenreId(e.target.value)}
+          >
+            <option value="choose">My project is in this genre...</option>
+            {genres ? (
+              genres.map((g) => (
+                <option value={g.id} key={g.id}>
+                  {g.title}
+                </option>
+              ))
+            ) : (
+              <></>
+            )}
+          </select>
+        </div>
+        <div>
+          <label
             htmlFor="deadline"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
           >
@@ -102,9 +156,7 @@ export const JobForm = () => {
             value={deadline}
             id="deadline"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
-            placeholder="YYYY-MM-DD"
-            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-            required
+            onChange={(e) => setDeadline(e.target.value)}
           />
         </div>
         <div>
@@ -122,7 +174,7 @@ export const JobForm = () => {
               // required
             />
             <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
               Remote or Onsite Job? (Remote by default)
             </span>
           </label>
@@ -140,7 +192,7 @@ export const JobForm = () => {
             id="reference"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
             placeholder="URL to Spotify or YouTube"
-            required
+            // required
           />
         </div>
       </div>
