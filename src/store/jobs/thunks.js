@@ -1,6 +1,11 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { startLoadingJobs, jobsFullyFetched, doneLoadingJobs } from "./slice";
+import {
+  startLoadingJobs,
+  jobsFullyFetched,
+  doneLoadingJobs,
+  JobPostSuccess,
+} from "./slice";
 
 import { selectToken } from "../user/selectors";
 
@@ -35,4 +40,36 @@ export const deleteJob = (id) => async (dispatch, getState) => {
   } catch (e) {
     console.log(e.message);
   }
+};
+
+export const jobForm = (
+  description,
+  budget,
+  specialisationId,
+  deadline,
+  genreId,
+  remote
+) => {
+  return async (dispatch, getState) => {
+    try {
+      const token = selectToken(getState());
+      // console.log("token", token);
+      if (token === null) return;
+      const response = await axios.post(
+        `${apiUrl}/jobs`,
+        {
+          description,
+          budget,
+          deadline,
+          remote,
+          specialisation_id: specialisationId,
+          genre_id: genreId,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      dispatch(JobPostSuccess(response.data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 };
