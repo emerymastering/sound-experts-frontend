@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../store/user/thunks";
 import { selectToken } from "../store/user/selectors";
+import axios from "axios";
+import { apiUrl } from "../config/constants";
 
 export const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -16,11 +18,26 @@ export const SignUp = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [countries, setCountries] = useState(null);
+
+  const fetchCountries = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}/users/countries`);
+      console.log("Countries", response);
+      setCountries(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const token = useSelector(selectToken);
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
 
   useEffect(() => {
     if (token !== null) {
@@ -75,11 +92,21 @@ export const SignUp = () => {
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-          <select className="w-1/2 p-3 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
-            <option selected>Choose Your Country</option>
-            <option value="USA">USA</option>
-            placeholder="country" value={countryId}
+          <select
+            className="w-1/2 p-3 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+            defaultValue="choose"
             onChange={(e) => setCountryId(e.target.value)}
+          >
+            <option value="choose">Choose Your Country</option>
+            {countries ? (
+              countries.map((c) => (
+                <option value={c.id} key={c.id}>
+                  {c.name}
+                </option>
+              ))
+            ) : (
+              <></>
+            )}
           </select>
           <Input
             placeholder="phone"
