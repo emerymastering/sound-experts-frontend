@@ -25,6 +25,28 @@ export const fetchJobs = () => async (dispatch, getState) => {
   }
 };
 
+export const fetchUserJobs = () => async (dispatch, getState) => {
+  try {
+    dispatch(startLoadingJobs());
+
+    const token = selectToken(getState());
+    if (token === null) return;
+
+    const response = await axios.get(`${apiUrl}/jobs/user`, {
+      // params: { id },
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    console.log("response", response);
+
+    dispatch(jobsFullyFetched({ jobs: response.data.jobs }));
+
+    dispatch(doneLoadingJobs());
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
 export const deleteJob = (id) => async (dispatch, getState) => {
   try {
     const token = selectToken(getState());
