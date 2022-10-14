@@ -5,10 +5,11 @@ import { useDispatch } from "react-redux";
 export default function Job({ id, job }) {
   const dispatch = useDispatch();
   const { description, budget, deadline, user, genre, specialisation } = job;
+  console.log("job", job);
   const removeJob = (id) => {
     dispatch(deleteJob(id));
   };
-
+  if (!job) return null;
   return (
     <div
       className="flex bg-teal-500 hover:bg-teal-400 text-white font-bold py-6 px-4 border-b-4 border-teal-700 hover:border-teal-500 rounded min-h-full "
