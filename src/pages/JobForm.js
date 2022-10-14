@@ -56,14 +56,17 @@ export const JobForm = () => {
   return (
     <form
       onSubmit={submitJob}
-      className="p-20 pt-20 pl-80 pr-80 ml-100 mr-100 bg-[url('https://cdn.smehost.net/sonymusiceu-deprod/wp-content/uploads/2021/05/MicrosoftTeams-image-10-scaled.jpg')] bg-center bg-cover
+      className="p-20 pb-80 pl-80 pr-80 ml-100 mr-100 bg-[url('https://cdn.smehost.net/sonymusiceu-deprod/wp-content/uploads/2021/05/MicrosoftTeams-image-10-scaled.jpg')] bg-center bg-cover
     "
     >
       <div className="grid gap-6 mb-6 md:grid-cols-1 pl-60 pr-60 bg-black bg-opacity-70 pb-10 ">
+        <h1 className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-0 text-center">
+          Create a new job post below
+        </h1>
         <div>
           <label
             htmlFor="description"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300  pt-10"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300"
           >
             Job description
           </label>
@@ -77,7 +80,6 @@ export const JobForm = () => {
             required
           />
         </div>
-
         <div className="flex">
           <div className="w-full md:w-1/2 pr-3">
             <label
@@ -184,7 +186,6 @@ export const JobForm = () => {
             </span>
           </label>
         </div>
-
         <div className="mb-6">
           <label
             htmlFor="reference"
