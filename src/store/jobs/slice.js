@@ -18,17 +18,10 @@ const jobsSlice = createSlice({
     doneLoadingJobs: (state) => {
       state.loading = false;
     },
-    JobPostSuccess: (state, action) => {
-      state.jobs.push(action.payload);
-    },
   },
 });
 
-export const {
-  startLoadingJobs,
-  jobsFullyFetched,
-  doneLoadingJobs,
-  JobPostSuccess,
-} = jobsSlice.actions;
+export const { startLoadingJobs, jobsFullyFetched, doneLoadingJobs } =
+  jobsSlice.actions;
 
 export default jobsSlice.reducer;
