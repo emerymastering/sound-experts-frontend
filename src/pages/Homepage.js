@@ -18,7 +18,7 @@ export const Homepage = () => {
         <div className="flex-auto w-1/2 p-10">
           <Link to={"/experts"}>
             <button
-              className="bg-teal-500 hover:bg-teal-400 text-white font-bold py-20 px-4 border-b-4 border-teal-700 hover:border-teal-500 rounded-full w-full h-full"
+              className="bg-teal-500 hover:bg-teal-400 text-white font-bold py-20 px-4 border-b-4 border-teal-700 hover:border-teal-500 rounded-l-full w-full h-full"
               style={{ color: "white" }}
             >
               I am a customer and I look for a professional help for my project.
@@ -30,7 +30,7 @@ export const Homepage = () => {
         <div className="flex-auto w-1/2 p-10">
           <Link to={"/jobs"}>
             <button
-              className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-20 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-full w-full h-full"
+              className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-20 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-r-full w-full h-full"
               style={{ color: "white" }}
             >
               I am an expert and I want to offer my services.
