@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { selectJobs } from "../store/jobs/selectors";
 import { fetchJobs } from "../store/jobs/thunks";
 import Job from "../components/Job";
@@ -11,8 +11,6 @@ export const Jobs = () => {
   useEffect(() => {
     dispatch(fetchJobs());
   }, [dispatch]);
-
-  console.log("show me:", jobs);
 
   return (
     <div className="ml-80 mr-80">
