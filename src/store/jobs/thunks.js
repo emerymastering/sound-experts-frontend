@@ -67,7 +67,7 @@ export const jobForm = (
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      dispatch(JobPostSuccess(response.data));
+      dispatch(fetchJobs());
     } catch (error) {
       console.log(error.message);
     }
