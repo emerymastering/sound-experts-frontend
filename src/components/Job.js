@@ -19,7 +19,7 @@ export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
   if (!job) return null;
   return (
     <div
-      className="flex bg-blue-500 hover:bg-blue-400 text-white font-bold py-6 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded min-h-full "
+      className="flex bg-blue-500 hover:bg-blue-400 text-white font-bold py-6 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded min-h-full"
       style={{ color: "white" }}
     >
       <img
@@ -29,7 +29,7 @@ export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
       />
 
       <div className="flex pl-4">
-        <div className="min-w-20 w-100">
+        <div className="min-w-20 w-80">
           {user.first_name && <p>Hi, I am {user.first_name}</p>}
           <p>I am looking for {specialisation.title}</p>
           <p>{description}</p>
@@ -51,12 +51,6 @@ export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
               <div className="pl-2">
                 <BasicModal description={description} />
               </div>
-              {/* <button
-                className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
-                onClick={() => {}}
-              >
-                Edit your job
-              </button> */}
             </>
           )}
 
