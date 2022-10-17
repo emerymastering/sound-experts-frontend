@@ -1,14 +1,22 @@
 import React from "react";
 import { deleteJob } from "../store/jobs/thunks";
+import { applyToJob } from "../store/jobs/thunks";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-export default function Job({ id, job }) {
+export default function Job({ id, job, deleteEnabled, applyEnable }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { description, budget, deadline, user, genre, specialisation } = job;
-  console.log("job", job);
+
   const removeJob = (id) => {
     dispatch(deleteJob(id));
   };
+  const applyJob = (id) => {
+    navigate(`/jobapply/${id}`);
+    // dispatch(applyToJob(id));
+  };
+
   if (!job) return null;
   return (
     <div
@@ -33,12 +41,22 @@ export default function Job({ id, job }) {
           <p>Deadline: {deadline}</p>
         </div>
         <div>
-          <button
-            className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
-            onClick={() => removeJob(id)}
-          >
-            Delete
-          </button>
+          {deleteEnabled ? (
+            <button
+              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+              onClick={() => removeJob(id)}
+            >
+              Delete
+            </button>
+          ) : null}
+          {applyEnable ? (
+            <button
+              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+              onClick={() => applyJob(id)}
+            >
+              Apply
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
