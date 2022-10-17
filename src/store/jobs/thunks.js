@@ -1,11 +1,6 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import {
-  startLoadingJobs,
-  jobsFullyFetched,
-  doneLoadingJobs,
-  JobPostSuccess,
-} from "./slice";
+import { startLoadingJobs, jobsFullyFetched, doneLoadingJobs } from "./slice";
 
 import { selectToken } from "../user/selectors";
 
@@ -54,11 +49,11 @@ export const deleteJob = (id) => async (dispatch, getState) => {
 
     // if we have no token, stop
     if (token === null) return;
-    await axios.delete(`${apiUrl}/jobs/${id}`, {
+    await axios.delete(`${apiUrl}/jobs/by/${id}`, {
       // params: { id },
       headers: { Authorization: `Bearer ${token}` },
     });
-    dispatch(fetchJobs());
+    dispatch(fetchUserJobs());
   } catch (e) {
     console.log(e.message);
   }
@@ -94,4 +89,25 @@ export const jobForm = (
       console.log(error.message);
     }
   };
+};
+
+export const applyToJob = (id) => async (dispatch, getState) => {
+  try {
+    const token = selectToken(getState());
+    // console.log(token, "token");
+
+    // if we have no token, stop
+    if (token === null) return;
+    await axios.post(
+      `${apiUrl}/jobs/${id}/apply`,
+      { message: "jump,jump,poshol nahuj" },
+      {
+        // params: { id },
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    dispatch(fetchUserJobs());
+  } catch (e) {
+    console.log(e.message);
+  }
 };
