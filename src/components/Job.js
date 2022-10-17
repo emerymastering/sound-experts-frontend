@@ -55,7 +55,14 @@ export default function Job({ id, job, deleteEnabled, applyEnable }) {
             >
               Apply
             </button>
-          ) : null}
+          ) : (
+            <button
+              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+              onClick={() => navigate("/login")}
+            >
+              Login to Apply
+            </button>
+          )}
         </div>
       </div>
     </div>
