@@ -2,6 +2,7 @@ import React from "react";
 import { deleteJob } from "../store/jobs/thunks";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import BasicModal from "./Modal.js";
 
 export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
   const dispatch = useDispatch();
@@ -47,12 +48,15 @@ export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
               >
                 Delete
               </button>
-              <button
+              <div className="pl-2">
+                <BasicModal description={description} />
+              </div>
+              {/* <button
                 className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
-                onClick={() => navigate("/myaccount")}
+                onClick={() => {}}
               >
                 Edit your job
-              </button>
+              </button> */}
             </>
           )}
 
