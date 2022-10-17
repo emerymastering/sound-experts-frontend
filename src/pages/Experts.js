@@ -14,8 +14,8 @@ export const Experts = () => {
 
   console.log("show me:", specialisations);
   return (
-    <div>
-      <h1 className="flex place-content-center text-3xl underline p-10">
+    <div className="p-20 pb-80 pl-80 pr-80 ml-100 mr-100 bg-[url('../public/images/musicians.jpg')]  bg-cover">
+      <h1 className="flex place-content-center text-3xl text-white p-10">
         Choose a category
       </h1>
       <div className="flex flex-row flex-wrap mx-32 justify-center">
