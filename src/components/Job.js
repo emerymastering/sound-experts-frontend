@@ -3,7 +3,7 @@ import { deleteJob } from "../store/jobs/thunks";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-export default function Job({ id, job, deleteEnabled, applyEnable }) {
+export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { description, budget, deadline, user, genre, specialisation } = job;
@@ -13,7 +13,6 @@ export default function Job({ id, job, deleteEnabled, applyEnable }) {
   };
   const applyJob = (id) => {
     navigate(`/jobapply/${id}`);
-    // dispatch(applyToJob(id));
   };
 
   if (!job) return null;
@@ -30,7 +29,7 @@ export default function Job({ id, job, deleteEnabled, applyEnable }) {
 
       <div className="flex pl-4">
         <div className="min-w-20 w-100">
-          <p>Hi, I am {user.first_name}</p>
+          {user.first_name && <p>Hi, I am {user.first_name}</p>}
           <p>I am looking for {specialisation.title}</p>
           <p>{description}</p>
           <p>The genre is {genre.title}</p>
@@ -40,22 +39,33 @@ export default function Job({ id, job, deleteEnabled, applyEnable }) {
           <p>Deadline: {deadline}</p>
         </div>
         <div>
-          {deleteEnabled ? (
-            <button
-              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
-              onClick={() => removeJob(id)}
-            >
-              Delete
-            </button>
-          ) : null}
-          {applyEnable ? (
+          {deleteEnabled && (
+            <>
+              <button
+                className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+                onClick={() => removeJob(id)}
+              >
+                Delete
+              </button>
+              <button
+                className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+                onClick={() => navigate("/myaccount")}
+              >
+                Edit your job
+              </button>
+            </>
+          )}
+
+          {applyEnable && (
             <button
               className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
               onClick={() => applyJob(id)}
             >
               Apply
             </button>
-          ) : (
+          )}
+
+          {!token && (
             <button
               className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
               onClick={() => navigate("/login")}
