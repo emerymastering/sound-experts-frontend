@@ -2,6 +2,7 @@ import { useDispatch, useSelector, useStore } from "react-redux";
 import { useEffect } from "react";
 import { selectJobs } from "../store/jobs/selectors";
 import { fetchJobs } from "../store/jobs/thunks";
+import { selectUser } from "../store/user/selectors";
 import Job from "../components/Job";
 import { selectToken } from "../store/user/selectors";
 
@@ -10,6 +11,8 @@ export const Jobs = () => {
   const jobs = useSelector(selectJobs);
   const store = useStore();
   const token = selectToken(store.getState());
+  const user = useSelector(selectUser);
+  console.log("who is user?", user);
 
   useEffect(() => {
     dispatch(fetchJobs());
@@ -32,9 +35,11 @@ export const Jobs = () => {
                 >
                   <Job
                     id={job.id}
+                    userId={user?.id}
                     job={job}
                     deleteEnabled={false}
-                    applyEnable={token ? true : false}
+                    applyEnable={token && user?.is_expert ? true : false}
+                    token={token}
                   />
                 </div>
               );
