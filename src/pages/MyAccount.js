@@ -7,6 +7,7 @@ import Job from "../components/Job";
 
 export const MyAccount = () => {
   const dispatch = useDispatch();
+
   const user = useSelector(selectUser);
   console.log("I am", user);
   const jobs = useSelector(selectJobs);
@@ -19,11 +20,11 @@ export const MyAccount = () => {
   if (!user) return;
 
   return (
-    <div className="bg-[url('https://thevinylfactory.com/wp-content/uploads/2018/01/01-The-Vinyl-Factory-Vinyl-Record-Pressing-Plant-London.-16-of-71.jpg')] bg-center bg-cover">
-      <div className=" p-20 pb-80 pl-80 pr-80 ml-100 mr-100 bg-black bg-opacity-70">
+    <div className="bg-[url('https://thevinylfactory.com/wp-content/uploads/2018/01/01-The-Vinyl-Factory-Vinyl-Record-Pressing-Plant-London.-16-of-71.jpg')] bg-center bg-cover pb-96">
+      <div className="h-100% pl-80 pr-80 pb-96 bg-black bg-opacity-70 ">
         {user && jobs && (
           <>
-            <div className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-0 text-center">
+            <div className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 text-center">
               Hello {user.first_name}
             </div>
             <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
@@ -37,7 +38,7 @@ export const MyAccount = () => {
                 "
                     key={job.id}
                   >
-                    <Job id={job.id} job={job} />
+                    <Job id={job.id} job={job} deleteEnabled={true} />
                   </div>
                 );
               })}
