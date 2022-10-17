@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { selectUser, selectToken } from "../store/user/selectors";
 import { selectJobs } from "../store/jobs/selectors";
@@ -7,7 +8,7 @@ import Job from "../components/Job";
 
 export const MyAccount = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const user = useSelector(selectUser);
   const jobs = useSelector(selectJobs);
 
@@ -17,7 +18,9 @@ export const MyAccount = () => {
     dispatch(fetchUserJobs());
   }, [dispatch]);
 
-  if (!user) return;
+  useEffect(() => {
+    if (!token) navigate("/login");
+  }, [token]);
 
   return (
     <div className="bg-[url('https://thevinylfactory.com/wp-content/uploads/2018/01/01-The-Vinyl-Factory-Vinyl-Record-Pressing-Plant-London.-16-of-71.jpg')] bg-center bg-cover pb-96">
