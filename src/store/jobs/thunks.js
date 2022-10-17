@@ -73,7 +73,7 @@ export const jobForm = (
       const token = selectToken(getState());
       // console.log("token", token);
       if (token === null) return;
-      const response = await axios.post(
+      await axios.post(
         `${apiUrl}/jobs`,
         {
           description,
