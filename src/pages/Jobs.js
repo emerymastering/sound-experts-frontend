@@ -27,7 +27,12 @@ export const Jobs = () => {
                 "
                   key={job.id}
                 >
-                  <Job id={job.id} job={job} />
+                  <Job
+                    id={job.id}
+                    job={job}
+                    deleteEnabled={false}
+                    applyEnable={true}
+                  />
                 </div>
               );
             })}
