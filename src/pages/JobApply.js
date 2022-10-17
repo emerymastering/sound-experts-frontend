@@ -19,13 +19,13 @@ export const JobApply = () => {
     new Date().toISOString().slice(0, 10)
   );
 
-  console.log("storeeee", store.getState());
+  // console.log("storeeee", store.getState());
 
   const fetchOneJob = async () => {
     try {
       const token = selectToken(store.getState());
       console.log("tekonas yra?", token);
-      const response = await axios.get(`${apiUrl}/jobs/${params.id}`, {
+      const response = await axios.get(`${apiUrl}/jobs/by/${params.id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       //   console.log("ka turim?", response.data);
