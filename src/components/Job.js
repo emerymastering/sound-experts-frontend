@@ -1,6 +1,5 @@
 import React from "react";
 import { deleteJob } from "../store/jobs/thunks";
-import { applyToJob } from "../store/jobs/thunks";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
