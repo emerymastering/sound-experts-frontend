@@ -4,10 +4,18 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import BasicModal from "./Modal.js";
 
-export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
+export default function Job({
+  id,
+  job,
+  deleteEnabled,
+  applyEnable,
+  token,
+  proposalsCount,
+}) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { description, budget, deadline, user, genre, specialisation } = job;
+  console.log("count", proposalsCount);
 
   const removeJob = (id) => {
     dispatch(deleteJob(id));
@@ -53,7 +61,6 @@ export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
               </div>
             </>
           )}
-
           {applyEnable && (
             <button
               className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
@@ -62,7 +69,6 @@ export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
               Apply
             </button>
           )}
-
           {!token && (
             <button
               className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
@@ -71,6 +77,12 @@ export default function Job({ id, job, deleteEnabled, applyEnable, token }) {
               Login to Apply
             </button>
           )}
+          <button
+            className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+            onClick={() => navigate(`/jobs/proposals/${id}`)}
+          >
+            {proposalsCount} props
+          </button>
         </div>
       </div>
     </div>

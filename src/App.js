@@ -13,6 +13,7 @@ import {
   Jobs,
   MyAccount,
   JobApply,
+  Proposals,
 } from "./pages";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/myaccount" element={<MyAccount />} />
         <Route path="/jobapply/:id" element={<JobApply />} />
+        <Route path="/jobs/proposals/:id" element={<Proposals />} />
       </Routes>
     </div>
   );

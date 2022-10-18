@@ -32,7 +32,7 @@ export const fetchUserJobs = () => async (dispatch, getState) => {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-    console.log("response", response);
+    // console.log("response", response);
 
     dispatch(jobsFullyFetched({ jobs: response.data.jobs }));
 
@@ -101,7 +101,7 @@ export const applyToJob = (id) => async (dispatch, getState) => {
     if (token === null) return;
     await axios.post(
       `${apiUrl}/jobs/${id}/apply`,
-      { message: "jump,jump,poshol nahuj" },
+      { message: "jump,jump" },
       {
         // params: { id },
         headers: { Authorization: `Bearer ${token}` },

@@ -6,3 +6,4 @@ export * from "./JobForm";
 export * from "./Jobs";
 export * from "./MyAccount";
 export * from "./JobApply";
+export * from "./Proposals";

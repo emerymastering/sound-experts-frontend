@@ -4,6 +4,7 @@ import appStateReducer from "./appState/slice";
 import userReducer from "./user/slice";
 import specialisationReducer from "./experts/slice";
 import jobReducer from "./jobs/slice";
+import proposalReducer from "./proposals/slice";
 
 export default configureStore({
   reducer: {
@@ -11,5 +12,6 @@ export default configureStore({
     user: userReducer,
     specialisation: specialisationReducer,
     jobs: jobReducer,
+    proposals: proposalReducer,
   },
 });

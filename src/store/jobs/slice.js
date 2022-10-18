@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const initialState = {
   loading: true,
   jobs: [],
+  proposals: [],
 };
 
 const jobsSlice = createSlice({
@@ -18,10 +19,18 @@ const jobsSlice = createSlice({
     doneLoadingJobs: (state) => {
       state.loading = false;
     },
+    proposalsFullyFetched: (state, action) => {
+      console.log("action", action);
+      state.proposals = action.payload.proposals;
+    },
   },
 });
 
-export const { startLoadingJobs, jobsFullyFetched, doneLoadingJobs } =
-  jobsSlice.actions;
+export const {
+  startLoadingJobs,
+  jobsFullyFetched,
+  doneLoadingJobs,
+  proposalsFullyFetched,
+} = jobsSlice.actions;
 
 export default jobsSlice.reducer;

@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { selectUser, selectToken } from "../store/user/selectors";
 import { selectJobs } from "../store/jobs/selectors";
 import { fetchUserJobs } from "../store/jobs/thunks";
+import { selectProposals } from "../store/proposals/selectors";
+import { fetchProposals } from "../store/proposals/thunks";
 import Job from "../components/Job";
 
 export const MyAccount = () => {
@@ -11,16 +13,21 @@ export const MyAccount = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
   const jobs = useSelector(selectJobs);
+  const proposals = useSelector(selectProposals);
 
   const token = useSelector(selectToken);
+
+  useEffect(() => {
+    if (!token) navigate("/login");
+  }, [token, navigate]);
 
   useEffect(() => {
     dispatch(fetchUserJobs());
   }, [dispatch]);
 
   useEffect(() => {
-    if (!token) navigate("/login");
-  }, [token]);
+    dispatch(fetchProposals());
+  }, [dispatch]);
 
   return (
     <div className="bg-[url('https://thevinylfactory.com/wp-content/uploads/2018/01/01-The-Vinyl-Factory-Vinyl-Record-Pressing-Plant-London.-16-of-71.jpg')] bg-center bg-cover pb-96">
@@ -46,6 +53,7 @@ export const MyAccount = () => {
                       job={job}
                       token={token}
                       deleteEnabled={true}
+                      proposalsCount={proposals.length}
                     />
                   </div>
                 );

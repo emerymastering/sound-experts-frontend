@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { selectJobs } from "../store/jobs/selectors";
 import { fetchJobs } from "../store/jobs/thunks";
 import { selectUser } from "../store/user/selectors";
+import { selectProposals } from "../store/proposals/selectors";
+import { fetchProposals } from "../store/proposals/thunks";
 import Job from "../components/Job";
 import { selectToken } from "../store/user/selectors";
 
@@ -12,10 +14,15 @@ export const Jobs = () => {
   const store = useStore();
   const token = selectToken(store.getState());
   const user = useSelector(selectUser);
-  console.log("who is user?", user);
+  const proposals = useSelector(selectProposals);
+  console.log("proposals count", proposals.length);
 
   useEffect(() => {
     dispatch(fetchJobs());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchProposals());
   }, [dispatch]);
 
   return (
@@ -40,6 +47,7 @@ export const Jobs = () => {
                     deleteEnabled={false}
                     applyEnable={token && user?.is_expert ? true : false}
                     token={token}
+                    proposalsCount={proposals.length}
                   />
                 </div>
               );
