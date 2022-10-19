@@ -92,26 +92,27 @@ export const jobForm = (
   };
 };
 
-export const applyToJob = (id) => async (dispatch, getState) => {
-  try {
-    const token = selectToken(getState());
-    // console.log(token, "token");
+export const applyToJob =
+  (id, message, budget, deadline) => async (dispatch, getState) => {
+    try {
+      const token = selectToken(getState());
+      // console.log(token, "token");
 
-    // if we have no token, stop
-    if (token === null) return;
-    await axios.post(
-      `${apiUrl}/jobs/${id}/apply`,
-      { message: "jump,jump" },
-      {
-        // params: { id },
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
-    dispatch(fetchUserJobs());
-  } catch (e) {
-    console.log(e.message);
-  }
-};
+      // if we have no token, stop
+      if (token === null) return;
+      await axios.post(
+        `${apiUrl}/jobs/${id}/apply`,
+        { message, price: budget, delivery_date: deadline },
+        {
+          // params: { id },
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      dispatch(fetchJobs());
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 
 export const acceptProposal = (id) => {
   return async (dispatch, getState) => {

@@ -1,4 +1,4 @@
-import { useDispatch, useStore } from "react-redux";
+import { useDispatch, useStore, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { applyToJob } from "../store/jobs/thunks";
@@ -12,6 +12,7 @@ export const JobApply = () => {
   const navigate = useNavigate();
   const params = useParams();
   const store = useStore();
+  const token = useSelector(selectToken);
   const [jobApplication, setJobApplication] = useState(null);
   const [message, setMessage] = useState("");
   const [budget, setBudget] = useState(null);
@@ -22,7 +23,7 @@ export const JobApply = () => {
   const fetchOneJob = async () => {
     try {
       const token = selectToken(store.getState());
-      console.log("tekonas yra?", token);
+      // console.log("tekonas yra?", token);
       const response = await axios.get(`${apiUrl}/jobs/by/${params.id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -34,16 +35,20 @@ export const JobApply = () => {
   };
 
   useEffect(() => {
+    if (!token) navigate("/login");
+  }, [token, navigate]);
+
+  useEffect(() => {
     fetchOneJob();
   }, [params.id]);
 
   const submitApplication = (e) => {
     e.preventDefault();
-    dispatch(applyToJob(params.id));
+    dispatch(applyToJob(params.id, message, budget, deadline));
     //   jobForm(description, budget, specialisationId, deadline, genreId, remote)
     navigate("/jobs");
   };
-  //   console.log("kas ce", jobApplication.job);
+  // console.log("kas ce", jobApplication.job.first_name);
 
   if (!jobApplication) return null;
 
@@ -53,13 +58,17 @@ export const JobApply = () => {
       className="h-screen bg-[url('../public/images/studio.jpg')] bg-center bg-cover pl-40 pr-40 pt-20
     "
     >
-      <div className="flex-col gap-6 p-10 max-w-2xl mx-auto bg-black bg-opacity-70 w-auto ">
+      <div className="flex-col gap-6 p-10 pb-40 max-w-2xl mx-auto bg-black bg-opacity-70 w-auto ">
         <h1 className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-0 text-center">
           Fill the fields below to send a job proposal
         </h1>
         <div>
-          <div className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-0 text-center">
+          <div className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
+            {jobApplication.job.user.first_name}{" "}
+            {jobApplication.job.user.second_name} says: <br />
+            <br />
             {jobApplication.job.description}
+            <br />I have a budget of {jobApplication.job.budget} €
           </div>
           <label
             htmlFor="description"
@@ -82,7 +91,7 @@ export const JobApply = () => {
           <div className="w-full md:w-1/2 pr-3">
             <label
               htmlFor="Budget"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
+              className="block mb-2  pt-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
             >
               Your fee in EUR
             </label>
@@ -99,7 +108,7 @@ export const JobApply = () => {
           <div className="w-full md:w-1/2 pl-3">
             <label
               htmlFor="deadline"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
+              className="block mb-2 pt-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
             >
               When can you deliver?
             </label>

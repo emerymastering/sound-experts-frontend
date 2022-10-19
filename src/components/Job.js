@@ -9,8 +9,10 @@ export default function Job({
   job,
   deleteEnabled,
   applyEnable,
+  propEnable,
   token,
   proposalsCount,
+  isExpert,
 }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -63,10 +65,18 @@ export default function Job({
           )}
           {applyEnable && (
             <button
-              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-3 pr-8 rounded"
               onClick={() => applyJob(id)}
             >
               Apply
+            </button>
+          )}
+          {!applyEnable && isExpert && (
+            <button
+              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-4 rounded"
+              // onClick={() => applyJob(id)}
+            >
+              Applied
             </button>
           )}
           {!token && (
@@ -77,9 +87,12 @@ export default function Job({
               Login to Apply
             </button>
           )}
+
           <button
             className="bg-stone-400 hover:bg-stone-500 font-bold py-2 px-3 ml-2 rounded"
-            onClick={() => navigate(`/jobs/proposals/${id}`)}
+            onClick={() =>
+              propEnable ? navigate(`/jobs/proposals/${id}`) : null
+            }
           >
             {proposalsCount} props
           </button>

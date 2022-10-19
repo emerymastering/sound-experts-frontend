@@ -15,11 +15,11 @@ export const Jobs = () => {
   const token = selectToken(store.getState());
   const user = useSelector(selectUser);
   // const proposals = useSelector(selectProposals);
-  // console.log("proposals count", proposals.length);
+  console.log("soo jobs", jobs);
 
   useEffect(() => {
     dispatch(fetchJobs());
-  }, [dispatch, jobs]);
+  }, [dispatch]);
 
   // useEffect(() => {
   //   dispatch(fetchProposals());
@@ -46,7 +46,18 @@ export const Jobs = () => {
                       userId={user?.id}
                       job={job}
                       deleteEnabled={false}
-                      applyEnable={token && user?.is_expert ? true : false}
+                      applyEnable={
+                        token &&
+                        user?.is_expert &&
+                        !job.job_applications.find(
+                          (job_application) =>
+                            job_application.user_expert.user.id === user.id
+                        )
+                          ? true
+                          : false
+                      }
+                      propEnable={token && !user?.is_expert ? true : false}
+                      isExpert={user.is_expert}
                       token={token}
                       proposalsCount={job.job_applications.length}
                     />
