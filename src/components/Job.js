@@ -39,7 +39,7 @@ export default function Job({
       <div className="flex pl-4">
         <div className="min-w-20 w-80">
           {user.first_name && <p>Hi, I am {user.first_name}</p>}
-          <p>I am looking for {specialisation.title}</p>
+          <p>I am looking for a {specialisation.title}</p>
           <p>{description}</p>
           <p>The genre is {genre.title}</p>
         </div>

@@ -3,17 +3,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { selectUser, selectToken } from "../store/user/selectors";
 import { selectJobs } from "../store/jobs/selectors";
-import { fetchUserJobs } from "../store/jobs/thunks";
-import { selectProposals } from "../store/proposals/selectors";
-import { fetchProposals } from "../store/proposals/thunks";
+// import { fetchUserJobs } from "../store/jobs/thunks";
+// import { selectProposals } from "../store/proposals/selectors";
+// import { fetchProposals } from "../store/proposals/thunks";
 import Proposal from "../components/Proposal";
 
 export const Proposals = () => {
   const { job_id } = useParams();
   console.log("jobId", job_id);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
   const jobs = useSelector(selectJobs);
   //   console.log("proposals ideee", proposals[0]);
 
@@ -28,7 +28,7 @@ export const Proposals = () => {
   }, [token, navigate]);
 
   return (
-    <div className="h-screen bg-[url('https://www.electronicbeats.net/app/uploads/fly-images/118676/DVS1-Full-Page-1920x1000-c.png')] bg-center bg-cover">
+    <div className="h-screen bg-[url('../public/images/vinyl.jpg')] bg-center bg-cover">
       <div className="flex items-center flex-col pt-6">
         <h1 className="text-3xl font-medium dark:text-blue-300 pt-10 pb-20 text-center bg-black bg-opacity-70 rounded-full w-80 h-20">
           List of Proposals

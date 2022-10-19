@@ -1,4 +1,4 @@
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useStore } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { applyToJob } from "../store/jobs/thunks";
@@ -50,10 +50,10 @@ export const JobApply = () => {
   return (
     <form
       onSubmit={submitApplication}
-      className="p-20 pb-80 pl-80 pr-80 ml-100 mr-100 bg-[url('https://cdn.smehost.net/sonymusiceu-deprod/wp-content/uploads/2021/05/MicrosoftTeams-image-10-scaled.jpg')] bg-center bg-cover
+      className="h-screen bg-[url('../public/images/studio.jpg')] bg-center bg-cover pl-40 pr-40 pt-20
     "
     >
-      <div className="grid gap-6 mb-6 md:grid-cols-1 pl-60 pr-60 bg-black bg-opacity-70 pb-10 ">
+      <div className="flex-col gap-6 p-10 max-w-2xl mx-auto bg-black bg-opacity-70 w-auto ">
         <h1 className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-0 text-center">
           Fill the fields below to send a job proposal
         </h1>
@@ -112,10 +112,7 @@ export const JobApply = () => {
             />
           </div>
         </div>
-      </div>
-
-      <div className="flex items-start mb-6">
-        <div className="flex items-center h-5">
+        <div className="items-center h-5">
           <input
             id="remember"
             type="checkbox"
@@ -123,27 +120,28 @@ export const JobApply = () => {
             className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-transparent dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
             required
           />
-        </div>
-        <label
-          htmlFor="remember"
-          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-        >
-          I agree with the{" "}
-          <a
-            href="#"
-            className="text-blue-600 hover:underline dark:text-blue-500"
+
+          <label
+            htmlFor="remember"
+            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
           >
-            terms and conditions
-          </a>
-          .
-        </label>
+            I agree with the{" "}
+            <a
+              href="#"
+              className="text-blue-600 hover:underline dark:text-blue-500"
+            >
+              terms and conditions
+            </a>
+            .
+          </label>
+          <button
+            type="submit"
+            className="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Submit
+          </button>
+        </div>
       </div>
-      <button
-        type="submit"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Submit
-      </button>
     </form>
   );
 };

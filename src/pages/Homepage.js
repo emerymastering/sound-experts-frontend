@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Homepage = () => {
   return (
-    <div className="relative  min-h-screen max-h-screen bg-[url('https://media-rd.s3.amazonaws.com/embedded_image/2017/03/soundwaves.jpg')] bg-center bg-cover bg-no-repeat">
+    <div className="relative  min-h-screen max-h-screen bg-[url('../public/images/soundwaves.jpg')] bg-center bg-cover bg-no-repeat">
       <h1 className="flex place-content-center text-3xl  p-10 text-gray-900 dark:text-blue-300 pb-10 text-center">
         Welcome to SoundExperts
       </h1>

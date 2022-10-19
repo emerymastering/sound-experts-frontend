@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { selectUser, selectToken } from "../store/user/selectors";
 import { selectJobs } from "../store/jobs/selectors";
 import { fetchUserJobs } from "../store/jobs/thunks";
-import { selectProposals } from "../store/proposals/selectors";
-import { fetchProposals } from "../store/proposals/thunks";
+// import { selectProposals } from "../store/proposals/selectors";
+// import { fetchProposals } from "../store/proposals/thunks";
 import Job from "../components/Job";
 
 export const MyAccount = () => {
@@ -30,7 +30,7 @@ export const MyAccount = () => {
   // }, [dispatch]);
 
   return (
-    <div className="h-screen bg-[url('https://thevinylfactory.com/wp-content/uploads/2018/01/01-The-Vinyl-Factory-Vinyl-Record-Pressing-Plant-London.-16-of-71.jpg')] bg-center bg-cover">
+    <div className="h-screen bg-[url('../public/images/factory.jpg')] bg-center bg-cover">
       <div className="h-screen bg-black bg-opacity-70 ">
         {user && jobs && (
           <>

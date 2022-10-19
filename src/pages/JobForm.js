@@ -56,7 +56,7 @@ export const JobForm = () => {
   return (
     <form
       onSubmit={submitJob}
-      className="h-screen bg-[url('https://cdn.smehost.net/sonymusiceu-deprod/wp-content/uploads/2021/05/MicrosoftTeams-image-10-scaled.jpg')] bg-center pl-40 pr-40 pt-20
+      className="h-screen bg-[url('../public/images/studio.jpg')] bg-center pl-40 pr-40 pt-20
     "
     >
       <div className="flex-col gap-6 p-10 max-w-2xl mx-auto bg-black bg-opacity-70 w-auto ">

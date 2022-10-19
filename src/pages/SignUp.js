@@ -63,8 +63,11 @@ export const SignUp = () => {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <Container>
+    <div
+      style={{ textAlign: "center" }}
+      className="h-screen bg-[url('../public/images/signup.jpg')] bg-contain bg-center pl-80 pr-80 pt-40"
+    >
+      <Container className="flex-col gap-6 p-10 max-w-2xl mx-auto bg-black bg-opacity-70 w-auto ">
         <Title>Sign Up</Title>
         <form onSubmit={submitForm}>
           <Input
@@ -135,5 +138,4 @@ export const SignUp = () => {
 const Container = styled.div`
   display: "flex";
   flex-direction: "column";
-  margin: 10%;
 `;
