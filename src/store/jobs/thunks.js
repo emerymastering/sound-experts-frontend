@@ -112,3 +112,26 @@ export const applyToJob = (id) => async (dispatch, getState) => {
     console.log(e.message);
   }
 };
+
+export const acceptProposal = (id) => {
+  return async (dispatch, getState) => {
+    try {
+      console.log("in patch request");
+      const token = selectToken(getState());
+      if (token === null) return;
+
+      const response = await axios.patch(
+        `${apiUrl}/jobs/proposal/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("response in patch", response);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+};
