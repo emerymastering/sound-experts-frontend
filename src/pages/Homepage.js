@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Homepage = () => {
   return (
-    <div className="min-h-screen max-h-screen bg-[url('https://media-rd.s3.amazonaws.com/embedded_image/2017/03/soundwaves.jpg')] bg-center bg-cover bg-no-repeat">
+    <div className="relative  min-h-screen max-h-screen bg-[url('https://media-rd.s3.amazonaws.com/embedded_image/2017/03/soundwaves.jpg')] bg-center bg-cover bg-no-repeat">
       <h1 className="flex place-content-center text-3xl  p-10 text-gray-900 dark:text-blue-300 pb-10 text-center">
         Welcome to SoundExperts
       </h1>
@@ -11,7 +11,7 @@ export const Homepage = () => {
         Singers, Musicians, Producers, Mixing and Mastering Engineers will help
         you to take your production to the next level!
       </div>
-      <div className="flex lg:flex-nowrap sm:flex-wrap p-10">
+      <div className="flex lg:flex-nowrap sm:flex-wrap p-10 fixed top-80 left-10 right-10 bottom-20">
         <div className="flex-auto w-1/2 p-20 pt-2 ml-2">
           <Link to={"/experts"}>
             <button
@@ -32,7 +32,7 @@ export const Homepage = () => {
             >
               I am an expert and I want to offer my services.
               <br /> <br />
-              Click here to see and apply to current jobs.
+              Click here to see and apply for current jobs.
             </button>
           </Link>
         </div>
