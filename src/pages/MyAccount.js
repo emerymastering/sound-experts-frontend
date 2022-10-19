@@ -44,7 +44,7 @@ export const MyAccount = () => {
               {jobs.map((job) => {
                 return (
                   <div
-                    className="p-5 w-800
+                    className="p-5 m-auto
                 "
                     key={job.id}
                   >

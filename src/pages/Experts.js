@@ -14,7 +14,7 @@ export const Experts = () => {
 
   console.log("show me:", specialisations);
   return (
-    <div className="h-screen bg-[url('../public/images/musicians.jpg')]  bg-contain bg-center">
+    <div className="h-screen bg-[url('../public/images/musicians.jpg')]  bg-contain bg-center ">
       <h1 className="flex place-content-center text-3xl text-white p-10 ml-96 mr-96 bg-black bg-opacity-40">
         Choose a category
       </h1>

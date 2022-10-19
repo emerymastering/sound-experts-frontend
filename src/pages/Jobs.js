@@ -19,7 +19,7 @@ export const Jobs = () => {
 
   useEffect(() => {
     dispatch(fetchJobs());
-  }, [dispatch]);
+  }, [dispatch, jobs]);
 
   // useEffect(() => {
   //   dispatch(fetchProposals());
@@ -37,7 +37,7 @@ export const Jobs = () => {
             : jobs.map((job) => {
                 return (
                   <div
-                    className="p-5 w-800
+                    className="p-5
                 "
                     key={job.id}
                   >

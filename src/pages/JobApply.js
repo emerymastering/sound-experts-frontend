@@ -14,12 +14,10 @@ export const JobApply = () => {
   const store = useStore();
   const [jobApplication, setJobApplication] = useState(null);
   const [message, setMessage] = useState("");
-  const [budget, setBudget] = useState("");
+  const [budget, setBudget] = useState(null);
   const [deadline, setDeadline] = useState(
     new Date().toISOString().slice(0, 10)
   );
-
-  // console.log("storeeee", store.getState());
 
   const fetchOneJob = async () => {
     try {
@@ -28,8 +26,8 @@ export const JobApply = () => {
       const response = await axios.get(`${apiUrl}/jobs/by/${params.id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      //   console.log("ka turim?", response.data);
       setJobApplication(response.data);
+      setBudget(response.data.job.budget);
     } catch (error) {
       console.log(error.message);
     }
@@ -90,7 +88,7 @@ export const JobApply = () => {
             </label>
             <input
               type="integer"
-              value={jobApplication.job.budget}
+              value={budget}
               onChange={(e) => setBudget(e.target.value)}
               id="budget"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-50 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 bg-clip-content hover:bg-clip-padding"
