@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { selectSpecialisations } from "../store/experts/selectors";
 import { fetchSpecialisations } from "../store/experts/thunks";
 import Specialisation from "../components/Specialisation";
