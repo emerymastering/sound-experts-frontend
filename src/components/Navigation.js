@@ -23,9 +23,9 @@ export const Navigation = () => {
         <span />
       </Hamburger>
       <Menu open={open}>
-        <MenuLink to="/jobform">Post a Job</MenuLink>
+        {token ? <MenuLink to="/jobform">Post a Job</MenuLink> : null}
         <MenuLink to="/jobs">Jobs Board</MenuLink>
-        <MenuLink to="/empty1">Messages</MenuLink>
+        {/* <MenuLink to="/empty1">Messages</MenuLink> */}
         <MenuLink to="/myaccount">My Account</MenuLink>
         {token ? (
           <button

@@ -27,7 +27,7 @@ export default function Job({
   if (!job) return null;
   return (
     <div
-      className="flex bg-blue-500 hover:bg-blue-400 text-white font-bold py-6 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded min-h-full"
+      className="flex bg-sky-800 hover:bg-sky-900 text-white font-bold py-6 px-4 border-b-4 border-sky-300 hover:border-sky-100 rounded min-h-full"
       style={{ color: "white" }}
     >
       <img
@@ -71,14 +71,14 @@ export default function Job({
           )}
           {!token && (
             <button
-              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+              className="bg-sky-500 hover:bg-sky-700 font-bold py-2 px-4 ml-2 rounded"
               onClick={() => navigate("/login")}
             >
               Login to Apply
             </button>
           )}
           <button
-            className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-2 rounded"
+            className="bg-stone-400 hover:bg-stone-500 font-bold py-2 px-4 ml-2 rounded"
             onClick={() => navigate(`/jobs/proposals/${id}`)}
           >
             {proposalsCount} props

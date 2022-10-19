@@ -36,7 +36,7 @@ function App() {
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/myaccount" element={<MyAccount />} />
         <Route path="/jobapply/:id" element={<JobApply />} />
-        <Route path="/jobs/proposals/:id" element={<Proposals />} />
+        <Route path="/jobs/proposals/:job_id" element={<Proposals />} />
       </Routes>
     </div>
   );

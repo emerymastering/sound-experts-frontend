@@ -29,8 +29,11 @@ export const Login = () => {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <Container>
+    <div
+      style={{ textAlign: "center" }}
+      className="h-screen pr-auto pl-auto bg-[url('../public/images/login.jpg')]  bg-contain bg-center"
+    >
+      <Container className="max-w-screen-xl">
         <Title>Login</Title>
         <form onSubmit={submitForm}>
           <Input
@@ -47,7 +50,7 @@ export const Login = () => {
           <br />
           <Button type="submit">Login</Button>
         </form>
-        <SubText>
+        <SubText className="bg-white mr-auto ml-auto max-w-fit bg-opacity-70">
           Don't have an account yet? Click{" "}
           <Link to="/signup" style={LinkWord}>
             here
@@ -62,11 +65,12 @@ export const Login = () => {
 const Container = styled.div`
   display: "flex";
   flex-direction: "column";
-  margin: 15%;
+  margin: auto;
+  padding: 200px;
 `;
 
 const SubText = styled.p`
   text-align: center;
   color: #1e3163;
-  padding: 20px 0px 5px 0px;
+  padding: 5px 0px 5px 0px;
 `;

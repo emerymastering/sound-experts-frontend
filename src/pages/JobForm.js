@@ -56,11 +56,11 @@ export const JobForm = () => {
   return (
     <form
       onSubmit={submitJob}
-      className="p-20 pb-80 pl-80 pr-80 ml-100 mr-100 bg-[url('https://cdn.smehost.net/sonymusiceu-deprod/wp-content/uploads/2021/05/MicrosoftTeams-image-10-scaled.jpg')] bg-center bg-cover
+      className="h-screen bg-[url('https://cdn.smehost.net/sonymusiceu-deprod/wp-content/uploads/2021/05/MicrosoftTeams-image-10-scaled.jpg')] bg-center pl-40 pr-40 pt-20
     "
     >
-      <div className="grid gap-6 mb-6 md:grid-cols-1 pl-60 pr-60 bg-black bg-opacity-70 pb-10 ">
-        <h1 className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-0 text-center">
+      <div className="flex-col gap-6 p-10 max-w-2xl mx-auto bg-black bg-opacity-70 w-auto ">
+        <h1 className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pb-10  text-center">
           Create a new job post below
         </h1>
         <div>
@@ -84,9 +84,9 @@ export const JobForm = () => {
           <div className="w-full md:w-1/2 pr-3">
             <label
               htmlFor="small"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
+              className="block mb-2 pt-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
             >
-              Select an expert by specialisation
+              Choose a specialisation
             </label>
             <select
               id="small"
@@ -109,9 +109,9 @@ export const JobForm = () => {
           <div className="w-full md:w-1/2 pl-3">
             <label
               htmlFor="small"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
+              className="block mb-2 pt-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
             >
-              Select a genre/style of music
+              Select a style of music
             </label>
             <select
               id="small"
@@ -138,7 +138,7 @@ export const JobForm = () => {
               htmlFor="Budget"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300 "
             >
-              Approximate budget in EUR
+              Approx. budget in EUR
             </label>
             <input
               type="integer"
@@ -166,7 +166,7 @@ export const JobForm = () => {
             />
           </div>
         </div>
-        <div>
+        <div className="pt-3">
           <label
             htmlFor="remote"
             className="inline-flex relative items-center cursor-pointer text-white"
@@ -182,11 +182,11 @@ export const JobForm = () => {
             />
             <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-transparent peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
             <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-              Remote or Onsite Job? (Remote by default)
+              {remote ? "Remote Job" : "On-site Job"}
             </span>
           </label>
         </div>
-        <div className="mb-6">
+        <div className="mb-6 pt-1">
           <label
             htmlFor="reference"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-300  "
@@ -201,10 +201,7 @@ export const JobForm = () => {
             // required
           />
         </div>
-      </div>
-
-      <div className="flex items-start mb-6">
-        <div className="flex items-center h-5">
+        <div className="items-center h-5">
           <input
             id="remember"
             type="checkbox"
@@ -212,27 +209,28 @@ export const JobForm = () => {
             className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-transparent dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
             required
           />
-        </div>
-        <label
-          htmlFor="remember"
-          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-        >
-          I agree with the{" "}
-          <a
-            href="#"
-            className="text-blue-600 hover:underline dark:text-blue-500"
+
+          <label
+            htmlFor="remember"
+            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
           >
-            terms and conditions
-          </a>
-          .
-        </label>
+            I agree with the{" "}
+            <a
+              href="#"
+              className="text-blue-600 hover:underline dark:text-blue-500"
+            >
+              terms and conditions
+            </a>
+            .
+          </label>
+        </div>
+        <button
+          type="submit"
+          className="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Submit
+        </button>
       </div>
-      <button
-        type="submit"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Submit
-      </button>
     </form>
   );
 };

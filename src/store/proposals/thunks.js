@@ -8,13 +8,13 @@ import {
 
 import { selectToken } from "../user/selectors";
 
-export const fetchProposals = () => async (dispatch, getState) => {
+export const fetchProposals = (id) => async (dispatch, getState) => {
   try {
     dispatch(startLoadingProposals());
 
     const token = selectToken(getState());
     if (token === null) return;
-    const response = await axios.get(`${apiUrl}/jobs/proposals/${1}`, {
+    const response = await axios.get(`${apiUrl}/jobs/proposals/${id}`, {
       // params: { id },
       headers: { Authorization: `Bearer ${token}` },
     });

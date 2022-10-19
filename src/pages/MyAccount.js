@@ -13,7 +13,7 @@ export const MyAccount = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
   const jobs = useSelector(selectJobs);
-  const proposals = useSelector(selectProposals);
+  // const proposals = useSelector(selectProposals);
 
   const token = useSelector(selectToken);
 
@@ -25,13 +25,13 @@ export const MyAccount = () => {
     dispatch(fetchUserJobs());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(fetchProposals());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchProposals());
+  // }, [dispatch]);
 
   return (
-    <div className="bg-[url('https://thevinylfactory.com/wp-content/uploads/2018/01/01-The-Vinyl-Factory-Vinyl-Record-Pressing-Plant-London.-16-of-71.jpg')] bg-center bg-cover pb-96">
-      <div className="h-100% pl-80 pr-80 pb-96 bg-black bg-opacity-70 ">
+    <div className="h-screen bg-[url('https://thevinylfactory.com/wp-content/uploads/2018/01/01-The-Vinyl-Factory-Vinyl-Record-Pressing-Plant-London.-16-of-71.jpg')] bg-center bg-cover">
+      <div className="h-screen bg-black bg-opacity-70 ">
         {user && jobs && (
           <>
             <div className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 text-center">
@@ -53,7 +53,7 @@ export const MyAccount = () => {
                       job={job}
                       token={token}
                       deleteEnabled={true}
-                      proposalsCount={proposals.length}
+                      proposalsCount={job.job_applications.length}
                     />
                   </div>
                 );
