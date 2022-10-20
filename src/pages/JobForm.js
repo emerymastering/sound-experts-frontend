@@ -1,6 +1,7 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { selectToken } from "../store/user/selectors";
 import axios from "axios";
 import { apiUrl } from "../config/constants";
 import { jobForm } from "../store/jobs/thunks";
@@ -18,6 +19,8 @@ export const JobForm = () => {
   const [genres, setGenres] = useState(null);
   const [specialisationId, setSpecialisationId] = useState("");
   const [specialisations, setSpecialisations] = useState(null);
+
+  const token = useSelector(selectToken);
 
   const fetchSpecialisations = async () => {
     try {
@@ -40,6 +43,10 @@ export const JobForm = () => {
       console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    if (!token) navigate("/login");
+  }, [token, navigate]);
 
   useEffect(() => {
     fetchGenres();
