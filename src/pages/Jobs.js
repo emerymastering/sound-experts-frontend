@@ -3,8 +3,6 @@ import { useEffect } from "react";
 import { selectJobs } from "../store/jobs/selectors";
 import { fetchJobs } from "../store/jobs/thunks";
 import { selectUser } from "../store/user/selectors";
-// import { selectProposals } from "../store/proposals/selectors";
-// import { fetchProposals } from "../store/proposals/thunks";
 import Job from "../components/Job";
 import { selectToken } from "../store/user/selectors";
 
@@ -14,20 +12,16 @@ export const Jobs = () => {
   const store = useStore();
   const token = selectToken(store.getState());
   const user = useSelector(selectUser);
-  // const proposals = useSelector(selectProposals);
 
   useEffect(() => {
     dispatch(fetchJobs());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(fetchProposals());
-  // }, [dispatch]);
   if (!jobs) return null;
   return (
     <div className="h-screen bg-[url('../public/images/vinyl.jpg')] bg-center bg-cover">
       <div className="flex items-center flex-col pt-6">
-        <h1 className="block text-3xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-20 text-center bg-black bg-opacity-70 rounded-full w-80 h-20">
+        <h1 className="block text-3xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-20 text-center bg-black bg-opacity-70 rounded-full w-80 h-20 mb-8">
           List of current Jobs
         </h1>
         <div className="flex flex-col flex-wrap mx-32 justify-center">
