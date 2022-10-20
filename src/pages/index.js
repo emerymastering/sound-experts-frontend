@@ -5,5 +5,6 @@ export * from "./Experts";
 export * from "./JobForm";
 export * from "./Jobs";
 export * from "./MyAccount";
+export * from "./MyAccountExpert";
 export * from "./JobApply";
 export * from "./Proposals";
