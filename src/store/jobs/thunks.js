@@ -120,7 +120,7 @@ export const acceptProposal = (id) => {
       const token = selectToken(getState());
       if (token === null) return;
 
-      const response = await axios.patch(
+      await axios.patch(
         `${apiUrl}/jobs/proposal/${id}`,
         {},
         {
@@ -129,7 +129,8 @@ export const acceptProposal = (id) => {
           },
         }
       );
-      console.log("response in patch", response);
+      // console.log("response in patch", response);
+      dispatch(fetchJobs());
     } catch (e) {
       console.log(e.message);
     }
