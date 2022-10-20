@@ -1,17 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { selectToken } from "../store/user/selectors";
 import { selectJobs } from "../store/jobs/selectors";
-// import { fetchUserJobs } from "../store/jobs/thunks";
-// import { selectProposals } from "../store/proposals/selectors";
-// import { fetchProposals } from "../store/proposals/thunks";
+import { fetchJobs } from "../store/jobs/thunks";
 import Proposal from "../components/Proposal";
 
 export const Proposals = () => {
   const { job_id } = useParams();
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   // const user = useSelector(selectUser);
   const jobs = useSelector(selectJobs);
@@ -21,12 +19,12 @@ export const Proposals = () => {
   const currentJob = jobs.find((job) => job.id === parseInt(job_id));
 
   useEffect(() => {
+    dispatch(fetchJobs());
+  }, [dispatch]);
+
+  useEffect(() => {
     if (!token) navigate("/login");
   }, [token, navigate]);
-
-  // useEffect(() => {
-  //   dispatch(fetchProposals());
-  // }, [dispatch]);
 
   return (
     <div className="h-screen bg-[url('../public/images/vinyl.jpg')] bg-center bg-cover">
