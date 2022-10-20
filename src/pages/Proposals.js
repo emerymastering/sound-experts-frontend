@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { selectToken } from "../store/user/selectors";
@@ -11,11 +11,10 @@ import Proposal from "../components/Proposal";
 export const Proposals = () => {
   const { job_id } = useParams();
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   // const user = useSelector(selectUser);
   const jobs = useSelector(selectJobs);
-  //   console.log("proposals ideee", proposals[0]);
 
   const token = useSelector(selectToken);
 
