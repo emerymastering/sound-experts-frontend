@@ -23,6 +23,7 @@ export const MyAccount = () => {
     dispatch(fetchUserJobs());
   }, [dispatch]);
 
+  if (!jobs) return null;
   return (
     <div className="h-screen bg-[url('../public/images/factory.jpg')] bg-center bg-cover">
       <div className="h-screen bg-black bg-opacity-70 ">

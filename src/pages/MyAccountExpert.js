@@ -37,14 +37,14 @@ export const MyAccountExpert = () => {
             <div className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 text-center">
               <p> Hello {user.first_name}</p>
               <img
-                className="m-auto mt-4"
+                className="m-auto mt-4 rounded-xl"
                 style={{ height: 100, width: 100 }}
                 src={user.image_URL}
                 alt="user"
               />
             </div>
             <div className="flex items-center flex-col pt-6">
-              <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
+              <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-5 text-center">
                 Here is the list of your proposals
               </p>
               <div className="flex flex-col flex-wrap mx-32 justify-center">

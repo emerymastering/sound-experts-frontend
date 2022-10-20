@@ -14,11 +14,11 @@ export const Experts = () => {
 
   return (
     <div className="h-screen bg-[url('../public/images/musicians.jpg')]  bg-contain bg-center ">
-      <div className="pt-10">
+      <div className="pt-20">
         <h1 className="flex place-content-center text-3xl text-white p-10 ml-96 mr-96 bg-black bg-opacity-40 rounded-lg">
           Choose a category
         </h1>
-        <div className="flex flex-row flex-wrap mx-32 justify-center pt-20">
+        <div className="flex flex-row flex-wrap mx-32 justify-center pt-40">
           {!specialisations.length
             ? "Loading"
             : specialisations.map((specialisation) => {
