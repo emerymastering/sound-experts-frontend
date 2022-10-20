@@ -44,7 +44,7 @@ export default function Job({
           <p>{description}</p>
           <p>The genre is {genre.title}</p>
         </div>
-        <div className="pl-4">
+        <div className="pr-5">
           <p>My Budget is {budget} €</p>
           <p>Deadline: {deadline}</p>
         </div>
@@ -86,15 +86,29 @@ export default function Job({
               Login to Apply
             </button>
           )}
-
-          <button
-            className="bg-stone-400 hover:bg-stone-500 font-bold py-2 px-3 ml-2 rounded"
-            onClick={() =>
-              propEnable ? navigate(`/jobs/proposals/${id}`) : null
-            }
-          >
-            {proposalsCount} props
-          </button>
+          {!token && (
+            <p className="pl-2 pt-2">
+              {proposalsCount} {proposalsCount === 1 ? "proposal" : "proposals"}
+            </p>
+          )}
+          {isExpert && (
+            <p className="pl-4 pt-2">
+              {proposalsCount} {proposalsCount === 1 ? "proposal" : "proposals"}
+            </p>
+          )}
+          {propEnable && (
+            <button
+              className="bg-stone-400 hover:bg-stone-500 font-bold py-2 px-4 ml-2 rounded max-w-full"
+              onClick={() => navigate(`/jobs/proposals/${id}`)}
+            >
+              {proposalsCount} {proposalsCount === 1 ? "prop" : "props"}
+            </button>
+          )}
+          {!propEnable && token && !isExpert && (
+            <div className="pl-6">
+              {proposalsCount} {proposalsCount === 1 ? "prop" : "props"}
+            </div>
+          )}
         </div>
       </div>
     </div>
