@@ -17,7 +17,6 @@ export default function Job({
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { description, budget, deadline, user, genre, specialisation } = job;
-  console.log("count", proposalsCount);
 
   const removeJob = (id) => {
     dispatch(deleteJob(id));
@@ -65,7 +64,7 @@ export default function Job({
           )}
           {applyEnable && (
             <button
-              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-3 pr-8 rounded"
+              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-5 pr-8 rounded"
               onClick={() => applyJob(id)}
             >
               Apply
@@ -73,7 +72,7 @@ export default function Job({
           )}
           {!applyEnable && isExpert && (
             <button
-              className="bg-green-500 hover:bg-green-700 font-bold py-2 px-4 ml-4 rounded"
+              className="bg-green-700 hover:bg-green-800 font-bold py-2 px-4 ml-4 rounded"
               // onClick={() => applyJob(id)}
             >
               Applied
