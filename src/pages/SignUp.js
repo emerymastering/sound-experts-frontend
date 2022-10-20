@@ -23,7 +23,7 @@ export const SignUp = () => {
   const fetchCountries = async () => {
     try {
       const response = await axios.get(`${apiUrl}/users/countries`);
-      console.log("Countries", response);
+
       setCountries(response.data);
     } catch (error) {
       console.log(error.message);

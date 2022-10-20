@@ -12,7 +12,6 @@ const specialisationSlice = createSlice({
       state.loading = true;
     },
     specialisationFullyFetched: (state, action) => {
-      console.log("action", action);
       state.specialisations = action.payload.specialisation;
     },
     doneLoadingSpecialisation: (state) => {

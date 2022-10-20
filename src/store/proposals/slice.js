@@ -12,7 +12,6 @@ const proposalsSlice = createSlice({
       state.loading = true;
     },
     proposalsFullyFetched: (state, action) => {
-      console.log("proposals action", action);
       state.proposals = action.payload.proposals;
     },
     doneLoadingProposals: (state) => {

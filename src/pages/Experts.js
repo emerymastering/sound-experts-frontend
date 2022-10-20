@@ -12,7 +12,6 @@ export const Experts = () => {
     dispatch(fetchSpecialisations());
   }, [dispatch]);
 
-  console.log("show me:", specialisations);
   return (
     <div className="h-screen bg-[url('../public/images/musicians.jpg')]  bg-contain bg-center ">
       <div className="pt-10">

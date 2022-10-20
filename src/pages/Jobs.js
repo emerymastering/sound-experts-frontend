@@ -15,7 +15,6 @@ export const Jobs = () => {
   const token = selectToken(store.getState());
   const user = useSelector(selectUser);
   // const proposals = useSelector(selectProposals);
-  console.log("soo jobs", jobs);
 
   useEffect(() => {
     dispatch(fetchJobs());
@@ -24,7 +23,7 @@ export const Jobs = () => {
   // useEffect(() => {
   //   dispatch(fetchProposals());
   // }, [dispatch]);
-
+  if (!jobs) return null;
   return (
     <div className="h-screen bg-[url('../public/images/vinyl.jpg')] bg-center bg-cover">
       <div className="flex items-center flex-col pt-6">
@@ -51,13 +50,17 @@ export const Jobs = () => {
                         user?.is_expert &&
                         !job.job_applications.find(
                           (job_application) =>
-                            job_application.user_expert.user.id === user.id
+                            job_application.user_expert.user.id === user?.id
                         )
                           ? true
                           : false
                       }
-                      propEnable={token && !user?.is_expert ? true : false}
-                      isExpert={user.is_expert}
+                      propEnable={
+                        token && !user?.is_expert && job.user_id === user?.id
+                          ? true
+                          : false
+                      }
+                      isExpert={user?.is_expert}
                       token={token}
                       proposalsCount={job.job_applications.length}
                     />

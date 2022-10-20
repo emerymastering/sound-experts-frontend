@@ -10,7 +10,7 @@ import Proposal from "../components/Proposal";
 
 export const Proposals = () => {
   const { job_id } = useParams();
-  console.log("jobId", job_id);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const user = useSelector(selectUser);
@@ -20,8 +20,6 @@ export const Proposals = () => {
   const token = useSelector(selectToken);
 
   const currentJob = jobs.find((job) => job.id === parseInt(job_id));
-  console.log(jobs);
-  console.log("current job", currentJob);
 
   useEffect(() => {
     if (!token) navigate("/login");

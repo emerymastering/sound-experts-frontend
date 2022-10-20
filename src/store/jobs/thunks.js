@@ -117,7 +117,6 @@ export const applyToJob =
 export const acceptProposal = (id) => {
   return async (dispatch, getState) => {
     try {
-      console.log("in patch request");
       const token = selectToken(getState());
       if (token === null) return;
 
