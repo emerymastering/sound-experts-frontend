@@ -4,16 +4,17 @@ import { useEffect } from "react";
 import { selectUser, selectToken } from "../store/user/selectors";
 import { selectJobs } from "../store/jobs/selectors";
 import { fetchUserJobs } from "../store/jobs/thunks";
-// import { selectProposals } from "../store/proposals/selectors";
-// import { fetchProposals } from "../store/proposals/thunks";
 import Job from "../components/Job";
+
+// path -> user.profile.user_expert.job_applications
 
 export const MyAccount = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(selectUser);
+
   const jobs = useSelector(selectJobs);
-  // const proposals = useSelector(selectProposals);
+  const jobApplications = user?.user_expert.job_applications;
 
   const token = useSelector(selectToken);
 
@@ -24,12 +25,6 @@ export const MyAccount = () => {
   useEffect(() => {
     dispatch(fetchUserJobs());
   }, [dispatch]);
-
-  console.log("jobzz", jobs);
-
-  // useEffect(() => {
-  //   dispatch(fetchProposals());
-  // }, [dispatch]);
 
   return (
     <div className="h-screen bg-[url('../public/images/factory.jpg')] bg-center bg-cover">
@@ -72,6 +67,7 @@ export const MyAccount = () => {
                 );
               })}
             </div>
+            <div className="flex flex-col flex-wrap mx-32 justify-center"></div>
           </>
         )}
       </div>
