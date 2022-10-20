@@ -18,14 +18,14 @@ export const Login = () => {
 
   useEffect(() => {
     if (token !== null) {
-      navigate("/");
+      navigate(-1);
     }
   }, [token, navigate]);
 
   const submitForm = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
-    navigate(-1);
+    // navigate(-1);
   };
 
   return (
