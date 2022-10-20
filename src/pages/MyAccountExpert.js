@@ -43,45 +43,47 @@ export const MyAccountExpert = () => {
                 alt="user"
               />
             </div>
-            <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
-              Here is the list of your proposals
-            </p>
-            <div className="flex flex-col flex-wrap mx-32 justify-center">
-              {jobs.map((job) => {
-                return (
-                  <div
-                    className="p-5 m-auto
-                "
-                    key={job.id}
-                  >
-                    <Job
-                      id={job.id}
-                      job={job}
-                      token={token}
-                      deleteEnabled={true}
-                      proposalsCount={job.job_applications.length}
-                      propEnable={
-                        token && !user?.is_expert && job.user_id === user.id
-                          ? true
-                          : false
-                      }
-                    />
-                  </div>
-                );
-              })}
-            </div>
-            <div className="flex flex-col flex-wrap mx-32 justify-center">
-              {!jobApplications.job_applications ? (
-                <p className="text-white">Loading...</p>
-              ) : (
-                jobApplications.job_applications.map((jobApplication) => {
+            <div className="flex items-center flex-col pt-6">
+              <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
+                Here is the list of your proposals
+              </p>
+              <div className="flex flex-col flex-wrap mx-32 justify-center">
+                {jobs.map((job) => {
                   return (
-                    <div className="p-5" key={jobApplication.id}>
-                      <ProposalExpert proposal={jobApplication} />
+                    <div
+                      className="p-5 m-auto
+                "
+                      key={job.id}
+                    >
+                      <Job
+                        id={job.id}
+                        job={job}
+                        token={token}
+                        deleteEnabled={true}
+                        proposalsCount={job.job_applications.length}
+                        propEnable={
+                          token && !user?.is_expert && job.user_id === user.id
+                            ? true
+                            : false
+                        }
+                      />
                     </div>
                   );
-                })
-              )}
+                })}
+              </div>
+              <div className="flex flex-col flex-wrap mx-32 justify-center">
+                {!jobApplications.job_applications ? (
+                  <p className="text-white">Loading...</p>
+                ) : (
+                  jobApplications.job_applications.map((jobApplication) => {
+                    return (
+                      <div className="p-5" key={jobApplication.id}>
+                        <ProposalExpert proposal={jobApplication} />
+                      </div>
+                    );
+                  })
+                )}
+              </div>
             </div>
           </>
         )}
