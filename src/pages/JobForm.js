@@ -63,10 +63,10 @@ export const JobForm = () => {
   return (
     <form
       onSubmit={submitJob}
-      className="h-screen bg-[url('../public/images/studio.jpg')] bg-center pl-40 pr-40 pt-20
+      className="h-screen bg-[url('../public/images/studio.jpg')] bg-center pt-40
     "
     >
-      <div className="flex-col gap-6 p-10 max-w-2xl mx-auto bg-black bg-opacity-70 w-auto ">
+      <div className="flex-col p-10 max-w-3xl m-auto bg-black bg-opacity-70 rounded-lg">
         <h1 className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pb-10  text-center">
           Create a new job post below
         </h1>
@@ -126,7 +126,7 @@ export const JobForm = () => {
               defaultValue="choose"
               onChange={(e) => setGenreId(e.target.value)}
             >
-              <option value="choose">My project is in this genre...</option>
+              <option value="choose">My project is in genre...</option>
               {genres ? (
                 genres.map((g) => (
                   <option value={g.id} key={g.id}>
