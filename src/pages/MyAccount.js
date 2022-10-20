@@ -6,15 +6,12 @@ import { selectJobs } from "../store/jobs/selectors";
 import { fetchUserJobs } from "../store/jobs/thunks";
 import Job from "../components/Job";
 
-// path -> user.profile.user_expert.job_applications
-
 export const MyAccount = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(selectUser);
 
   const jobs = useSelector(selectJobs);
-  const jobApplications = user?.user_expert.job_applications;
 
   const token = useSelector(selectToken);
 
@@ -34,15 +31,9 @@ export const MyAccount = () => {
             <div className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 text-center">
               Hello {user.first_name}
             </div>
-            {!user.is_expert ? (
-              <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
-                Here is the list of jobs you posted
-              </p>
-            ) : (
-              <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
-                Here is the list of your proposals
-              </p>
-            )}
+            <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
+              Here is the list of jobs you posted
+            </p>
             <div className="flex flex-col flex-wrap mx-32 justify-center">
               {jobs.map((job) => {
                 return (
