@@ -11,7 +11,7 @@ export default function Proposal({ proposal }) {
 
   return (
     <div className="flex-col px-2 bg-sky-700 rounded">
-      Proposal posted on {date}
+      Proposal received on {date}
       <div
         className="flex bg-sky-800 hover:bg-sky-900 text-white font-bold py-6 px-4 border-b-4 border-sky-300 hover:border-sky-100 rounded min-h-full"
         style={{ color: "white" }}

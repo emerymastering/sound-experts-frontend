@@ -58,7 +58,11 @@ export default function Job({
                 Delete
               </button>
               <div className="pl-2">
-                <BasicModal description={description} />
+                <BasicModal
+                  description={description}
+                  budget={budget}
+                  deadline={deadline}
+                />
               </div>
             </>
           )}

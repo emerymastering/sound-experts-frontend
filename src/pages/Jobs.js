@@ -19,8 +19,8 @@ export const Jobs = () => {
 
   if (!jobs) return null;
   return (
-    <div className="h-screen bg-[url('../public/images/vinyl.jpg')] bg-center bg-cover">
-      <div className="flex items-center flex-col pt-6">
+    <div className="flex flex-col h-screen bg-[url('../public/images/vinyl.jpg')] bg-center bg-cover">
+      <div className="flex items-center flex-col pt-6 flex-grow">
         <h1 className="block text-3xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-20 text-center bg-black bg-opacity-70 rounded-full w-80 h-20 mb-8">
           List of current Jobs
         </h1>

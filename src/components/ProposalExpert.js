@@ -10,12 +10,12 @@ export default function Proposal({ proposal }) {
   const oneProposal = proposal.job.user;
 
   // const navigate = useNavigate();
-
+  if (!oneProposal) return null;
   return (
     <div className="flex-col px-2 bg-sky-700 rounded">
-      Proposal posted on {date}
+      Proposal sent on {date}
       <div
-        className="flex bg-sky-800 hover:bg-sky-900 text-white font-bold py-6 px-4 border-b-4 border-sky-300 hover:border-sky-100 rounded min-h-full"
+        className="flex bg-sky-800 hover:bg-sky-900 text-white font-bold py-4 px-4 border-b-4 border-sky-300 hover:border-sky-100 rounded"
         style={{ color: "white" }}
       >
         <img
@@ -24,12 +24,15 @@ export default function Proposal({ proposal }) {
           alt="user"
         />
         <div className="flex pl-4 w-full">
-          <div className="w-1/3 mr-8">
-            Hello, I am {oneProposal.first_name} {oneProposal.second_name}
+          <div className="w-1/2 mr-8">
+            Proposal for {oneProposal.first_name} {oneProposal.second_name}
+            <br />
+            Delivering job on:
+            <br /> {proposal.delivery_date}
           </div>
-          <div className="w-1/3 pl-2 mr-8 m-auto">
+          <div className="w-1/2 pl-2 mr-8">
             {proposal.message} <br />
-            And my asking price is {proposal.price}€
+            And my asking price is: {proposal.price}€
           </div>
           <div className="w-1/3 pl-8">
             {!proposal.accepted ? (

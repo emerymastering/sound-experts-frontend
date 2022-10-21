@@ -16,9 +16,11 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ description }) {
+export default function BasicModal({ description, budget, deadline }) {
   const [open, setOpen] = useState(false);
   const [desc, setDesc] = useState(description);
+  const [budg, setBudg] = useState(budget);
+  const [date, setDate] = useState(deadline);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -46,9 +48,24 @@ export default function BasicModal({ description }) {
         <Box sx={style}>
           Hey, here you can edit the job!
           <form onSubmit={handleSubmit}>
+            <br />
+            Description:
             <input
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
+              className="input"
+            />
+            Budget EUR:
+            <input
+              value={budg}
+              onChange={(e) => setBudg(e.target.value)}
+              className="input"
+            />
+            Deadline:
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
               className="input"
             />
             <Button type="submit">Apply Changes</Button>
