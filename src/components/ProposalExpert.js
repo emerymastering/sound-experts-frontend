@@ -8,7 +8,7 @@ export default function Proposal({ proposal }) {
   const date = DateTime.fromISO(proposal.createdAt).toLocaleString();
   const dispatch = useDispatch();
   const oneProposal = proposal.job.user;
-
+  console.log("lalalal", oneProposal);
   // const navigate = useNavigate();
   if (!oneProposal) return null;
   return (

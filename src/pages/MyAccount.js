@@ -33,7 +33,7 @@ export const MyAccount = () => {
               Hello {user.first_name}
             </div>
             <p className="block text-xl font-medium text-gray-900 dark:text-blue-300 pt-10 pb-10 text-center">
-              Here is the list of jobs you posted
+              Here is the list of your job offers
             </p>
             <div className="flex flex-col flex-wrap mx-32 justify-center">
               {jobs.map((job) => {
