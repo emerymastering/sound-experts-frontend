@@ -10,8 +10,6 @@ export const fetchJobs = () => async (dispatch, getState) => {
 
     const response = await axios.get(`${apiUrl}/jobs`);
 
-    console.log("response", response);
-
     dispatch(jobsFullyFetched({ jobs: response.data.jobs }));
 
     dispatch(doneLoadingJobs());
@@ -31,6 +29,7 @@ export const fetchUserJobs = () => async (dispatch, getState) => {
       // params: { id },
       headers: { Authorization: `Bearer ${token}` },
     });
+    console.log("response fetch jobs", response);
 
     // console.log("response", response);
 
