@@ -30,8 +30,8 @@ export const MyAccountExpert = () => {
   }, [dispatch]);
 
   return (
-    <div className="h-screen bg-[url('../public/images/factory.jpg')] bg-center bg-cover">
-      <div className="h-screen bg-black bg-opacity-70 ">
+    <div className="h-screen bg-[url('../public/images/factory.jpg')] bg-center bg-cover bg-fixed">
+      <div className="h-screen bg-black bg-opacity-70 overflow-scroll">
         {user && jobs && (
           <>
             <div className="block text-2xl font-medium text-gray-900 dark:text-blue-300 pt-10 text-center">
