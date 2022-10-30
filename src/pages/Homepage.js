@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Homepage = () => {
   return (
-    <div className="flex justify-center relative h-screen bg-[url('../public/images/soundwaves.jpg')] bg-center bg-cover  bg-fixed">
+    <div className="flex justify-center relative h-screen bg-[url('../public/images/soundwaves.jpg')] bg-center bg-cover bg-fixed">
       <div className="fixed text-3xl m-10 text-gray-900 dark:text-blue-300">
         Welcome to SoundExperts
       </div>
