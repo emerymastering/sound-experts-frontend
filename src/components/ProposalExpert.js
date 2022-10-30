@@ -4,10 +4,10 @@ import { useDispatch } from "react-redux";
 import { DateTime } from "luxon";
 import { acceptProposal } from "../store/jobs/thunks";
 
-export default function Proposal({ proposal }) {
+export default function ProposalExpert({ proposal }) {
   const date = DateTime.fromISO(proposal.createdAt).toLocaleString();
   const dispatch = useDispatch();
-  const oneProposal = proposal.job.user;
+  const oneProposal = proposal.job?.user;
   console.log("lalalal", oneProposal);
   // const navigate = useNavigate();
   if (!oneProposal) return null;
