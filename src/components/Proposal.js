@@ -8,6 +8,7 @@ export default function Proposal({ proposal }) {
   const date = DateTime.fromISO(proposal.createdAt).toLocaleString();
   const dispatch = useDispatch();
   // const navigate = useNavigate();
+  console.log("propsal!!", proposal);
 
   return (
     <div className="flex-col px-2 bg-sky-700 rounded">
@@ -18,12 +19,12 @@ export default function Proposal({ proposal }) {
       >
         <img
           style={{ height: 100, width: 100 }}
-          src={proposal.user_expert.user.image_URL}
+          src={proposal.user_expert?.user.image_URL}
           alt="user"
         />
         <div className="flex pl-4 w-full">
           <div className="w-1/3 mr-8">
-            Hello, I am {proposal.user_expert.user.first_name}
+            Hello, I am {proposal.user_expert?.user.first_name}
             <p>I am a:</p>
             <ul>
               {proposal.user_expert.specialisations.map((spec) => (
