@@ -1,3 +1,26 @@
+# Project is in early stages with some functionality working:
+
+creating account (not for Experts yet, only for customers),
+loggin in,
+posting a job,
+a job list,
+sending proposal for a job (from Expert side),
+accepting a proposal,
+deleting a job,
+you can see a list of jobs and proposals in your account.
+
+More functionality are in plans:
+
+registering as an Expert,
+editing account information,
+messaging between expert and customer,
+editing job details,
+seeing a list of specialists by categories,
+profiles of Experts,
+etc etc
+
+# Frontend and Backend are deployed and you can check the project at https://sound-experts.vercel.app/
+
 # Frontend template
 
 This is a simple react/redux/jwt template to start a project quickly
