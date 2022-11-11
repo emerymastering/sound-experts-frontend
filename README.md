@@ -1,4 +1,4 @@
-# Project is in early stages with some functionality working:
+# Project is in an early stage with some functionality working:
 
 creating account (not for Experts yet, only for customers),
 loggin in,
@@ -9,14 +9,16 @@ accepting a proposal,
 deleting a job,
 you can see a list of jobs and proposals in your account.
 
-More functionality are in plans:
+More functionality is in the plans:
 
 registering as an Expert,
 editing account information,
 messaging between expert and customer,
+reviews and rating after the job is done,
 editing job details,
 seeing a list of specialists by categories,
 profiles of Experts,
+payments,
 etc etc
 
 # Frontend and Backend are deployed and you can check the project at https://sound-experts.vercel.app/
