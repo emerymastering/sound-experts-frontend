@@ -4,7 +4,7 @@ export const Homepage = () => {
   return (
     <div className="flex justify-center relative h-screen bg-[url('../public/images/soundwaves.jpg')] bg-center bg-cover bg-fixed">
       <div className="fixed text-3xl m-10 text-gray-900 dark:text-blue-300">
-        Welcome to SoundExperts
+        Welcome to SoundExperts!
       </div>
       <div className="fixed text-xl text-gray-900 dark:text-blue-300 pt-4 pb-4 text-center bg-black bg-opacity-70 rounded-full max-w-xl pl-10 pr-10 mt-24">
         Here you can find the best experts in sound and music. Experienced
